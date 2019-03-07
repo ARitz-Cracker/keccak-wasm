@@ -1,0 +1,44 @@
+{
+	"name": "keccak-wasm",
+	"version": "0.8.0",
+	"description": "WASM implementation of keccak",
+	"keywords": [
+		"hash",
+		"keccak",
+		"keccak256",
+		"keccak384",
+		"keccak512",
+		"wasm"
+	],
+	"homepage": "https://github.com/ARitz-Cracker/keccak-wasm#readme",
+	"bugs": {
+		"url": "https://github.com/ARitz-Cracker/keccak-wasm/issues"
+	},
+	"license": "CC-BY-SA-4.0",
+	"author": "Aritz Beobide-Cardinal <aritz@aritzcracker.ca>",
+	"main": "node.js",
+	"browser": "browser.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ARitz-Cracker/keccak-wasm.git"
+	},
+	"scripts": {
+		"test": "mocha",
+		"test:cov": "nyc mocha",
+		"test:cov-full": "nyc --check-coverage --lines 100 --functions 100 --branches 100 --statements 100 mocha",
+		"travis:start": "eslint . && npm run test:cov",
+		"travis:after": "nyc report --reporter=text-lcov | coveralls"
+	},
+	"dependencies": {
+		"arc-bufferlib": "^0.9.2"
+	},
+	"peerDependencies": {},
+	"devDependencies": {
+		"chai": "^4.2.0",
+		"chai-as-promised": "^7.1.1",
+		"mocha": "^5.2.0",
+		"nyc": "^13.1.0",
+		"eslint": "^5.14.1",
+		"js-sha3": "^0.8.0"
+	}
+}

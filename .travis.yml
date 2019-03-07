@@ -1,0 +1,16 @@
+language: node_js
+
+# test on stable and LTS
+node_js:
+  - "node" #stable
+  - "lts/*"
+  
+before_install:
+  - npm install -g mocha chai nyc coveralls eslint
+branches:
+ only:
+   - master
+   - developer
+script: npm run travis:start
+after_script:
+   - npm run travis:after
