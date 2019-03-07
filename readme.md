@@ -1,4 +1,4 @@
-# pbkdf2-sha512-wasm
+# keccak-wasm
 This is a WebAssembly implementation of the Keccak hashing functions. This library supports keccak224, keccak256, keccak384, and keccak512
 
 # Usage and example:
