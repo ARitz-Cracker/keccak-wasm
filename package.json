@@ -24,8 +24,7 @@
 	},
 	"scripts": {
 		"test": "mocha",
-		"test:cov": "nyc mocha",
-		"test:cov-full": "nyc --check-coverage --lines 100 --functions 100 --branches 100 --statements 100 mocha",
+		"test:cov": "nyc --check-coverage --lines 100 --functions 100 --branches 100 --statements 100 mocha",
 		"travis:start": "eslint . && npm run test:cov",
 		"travis:after": "nyc report --reporter=text-lcov | coveralls"
 	},

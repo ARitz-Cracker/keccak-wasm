@@ -4,10 +4,12 @@
  *
  * Perhaps I should expand upon this file to make a fast generic WASM loader.
  */
+/* istanbul ignore next */
 const abort = function(err = "keccak Error"){
 	throw new Error(err);
 };
 
+/* istanbul ignore next */
 const isLittleEndian = (buffer) => {
 	const littleEndian = true;
 	const notLittleEndian = false;
@@ -34,6 +36,7 @@ const instantiateKeccakWasmBytes = async(bytes) => {
 		maximum: TOTAL_MEMORY / WASM_PAGE_SIZE
 	});
 
+	/* istanbul ignore next */
 	if(!isLittleEndian(wasmMemory.buffer)){
 		throw new Error("Runtime error: expected the system to be little-endian.");
 	}
@@ -59,6 +62,7 @@ const instantiateKeccakWasmBytes = async(bytes) => {
 
 	let getErrNoLocation;
 
+	/* istanbul ignore next */
 	const env = {
 		DYNAMICTOP_PTR,
 		STACKTOP,

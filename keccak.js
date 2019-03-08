@@ -3,6 +3,7 @@ const{instantiateKeccakWasmBytes} = require("./keccakWasm.js");
 let keccakWasm = null;
 class Keccak {
 	constructor(bits){
+		/* istanbul ignore next */
 		if(keccakWasm == null){
 			throw new Error("You must initialize this library before using it.");
 		}
@@ -113,15 +114,18 @@ class Keccak {
 		return result;
 	}
 }
-let uninitialized = true;
-const InitializeKeccakLib = async(bytes) => {
-	if(uninitialized){
-		keccakWasm = await instantiateKeccakWasmBytes(bytes);
+let initPromise;
+const InitializeKeccakLib = (bytes) => {
+	/* istanbul ignore next */
+	if(initPromise == null){
+		initPromise = (async() => {
+			keccakWasm = await instantiateKeccakWasmBytes(bytes);
+		})();
 	}
-	uninitialized = false;
+	return initPromise;
 };
 const simpleFuncsInstance = [];
-const simpleFuncs = [ 224, 256, 384, 512 ].map((_bits, _i) => {
+const simpleFuncs = [224, 256, 384, 512].map((_bits, _i) => {
 	const bits = _bits;
 	const i = _i;
 	return function(data, hexString = true){

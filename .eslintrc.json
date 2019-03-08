@@ -45,7 +45,7 @@
 		"no-undef-init": "error",
 		"no-sync": ["error", { "allowAtRootLevel": true }],
 		"array-bracket-newline": ["error", {"multiline": true}],
-		"array-bracket-spacing": ["error", "always", { "singleValue": false, "objectsInArrays": false, "arraysInArrays": false}],
+		"array-bracket-spacing": ["error", "never"],
 		"array-element-newline": ["error", "consistent"],
 		"block-spacing": ["error", "never"],
 		"brace-style": ["error", "1tbs"],
