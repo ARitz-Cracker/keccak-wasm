@@ -1,4 +1,9 @@
 # keccak-wasm
+[![NPM](https://nodei.co/npm/keccak-wasm.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/keccak-wasm/)
+
+[![Build Status](https://travis-ci.org/ARitz-Cracker/keccak-wasm.svg?branch=master)](https://travis-ci.org/ARitz-Cracker/keccak-wasm)
+[![Coverage Status](https://coveralls.io/repos/github/ARitz-Cracker/keccak-wasm/badge.svg?branch=master)](https://coveralls.io/github/ARitz-Cracker/keccak-wasm?branch=master)
+
 This is a WebAssembly implementation of the Keccak hashing functions. This library supports keccak224, keccak256, keccak384, and keccak512
 
 # Usage and example:
@@ -24,3 +29,4 @@ keccak.update("Hello, hello! Testing testing");
 // Paranoia defaults to false since the given data is wiped by default in keccak.update
 keccak.final() // "3cf7012953f4e04a80da00065c1f12ce47bdd24633879c29e35bb12e5f6f54a8"
 ```
+
