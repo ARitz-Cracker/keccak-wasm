@@ -25,7 +25,7 @@ describe("Keccak hasher", function() {
 	before(function(done) {
 		InitializeKeccak().then(done).catch(done);
 	});
-	describe("Keccak object", function(){
+	//describe("Keccak object", function(){
 		it("can return Uint8Arrays, given a string or Uint8Array", function(){
 			for (let i = 0; i < 4; i += 1){
 				const keccak = new Keccak(supportedBits[i]);
@@ -73,5 +73,5 @@ describe("Keccak hasher", function() {
 				expect(function(){keccak.final(staticTestBuffer)}).to.throw("Keccak instance has been destroyed");
 			}
 		});
-	});
+	//});
 });
