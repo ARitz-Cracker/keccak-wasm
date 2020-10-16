@@ -1,6 +1,6 @@
 {
 	"name": "keccak-wasm",
-	"version": "0.9.0",
+	"version": "0.10.0",
 	"description": "WASM implementation of keccak",
 	"keywords": [
 		"hash",
@@ -26,12 +26,22 @@
 		"test": "mocha",
 		"test:cov": "nyc --check-coverage --lines 100 --functions 100 --branches 100 --statements 100 mocha",
 		"travis:start": "eslint . && npm run test:cov",
-		"travis:after": "nyc report --reporter=text-lcov | coveralls"
+		"travis:after": "nyc report --reporter=text-lcov | coveralls",
+		"postinstall": "bash scripts/postinstall.sh"
 	},
-	"dependencies": {
-		"arc-bufferlib": "^0.9.2"
+	"dependencies": {},
+	"peerDependencies": {
+		"buffer-lite": "^0.1.4"
 	},
-	"peerDependencies": {},
+	"browserRequirifier": {
+		"include": [
+			"keccak.js",
+			"keccakWasm.js"
+		],
+		"copyVerbatim": [
+			"bin"
+		]
+	},
 	"devDependencies": {
 		"chai": "^4.2.0",
 		"chai-as-promised": "^7.1.1",

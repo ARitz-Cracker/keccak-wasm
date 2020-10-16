@@ -1,4 +1,10 @@
-const BufferLib = require("arc-bufferlib");
+if(typeof Buffer === "undefined"){
+	try{
+		require("buffer-lite");
+	}catch(ex){
+		// buffer-lite not installed
+	}
+}
 const{instantiateKeccakWasmBytes} = require("./keccakWasm.js");
 let keccakWasm = null;
 class Keccak {
@@ -49,7 +55,7 @@ class Keccak {
 		}
 		if(!(data instanceof Uint8Array)){
 			if(typeof data === "string"){
-				data = BufferLib.stringToBuffer(data);
+				data = Buffer.from(data);
 			}else{
 				throw new TypeError("Must be a string or Uint8Array");
 			}
@@ -99,6 +105,9 @@ class Keccak {
 			));
 		}else{
 			result = keccakWasm.heapU8.slice(this._resultPtr, this._resultPtr + (this._hexLength / 2));
+			if(typeof Buffer !== "undefined"){
+				result = Buffer.from(result.buffer, result.byteOffset, result.byteLength);
+			}
 		}
 		if(paranoia){
 			keccakWasm.heapU8.fill(0, this._argPtr, this._argPtr + this._argLen);

@@ -6,6 +6,8 @@
 
 This is a WebAssembly implementation of the Keccak hashing functions. This library supports keccak224, keccak256, keccak384, and keccak512
 
+This module will return `Buffer`s as its results should a global `Buffer` object exists. If one doesn't, it will return `Uint8Array`s
+
 # Usage and example:
 
 ```js
@@ -15,7 +17,7 @@ await InitializeKeccak(); // This must be called before using this library.
 //keccak256(data, hexString = true);
 keccak256("Hello, hello! Testing testing"); // "3cf7012953f4e04a80da00065c1f12ce47bdd24633879c29e35bb12e5f6f54a8"
 keccak256("Hello, hello! Testing testing", true); // "3cf7012953f4e04a80da00065c1f12ce47bdd24633879c29e35bb12e5f6f54a8"
-keccak256("Hello, hello! Testing testing", false); // "Uint8Array <3cf7012953f4e04a80da00065c1f12ce47bdd24633879c29e35bb12e5f6f54a8>"
+keccak256("Hello, hello! Testing testing", false); // "Buffer <3cf7012953f4e04a80da00065c1f12ce47bdd24633879c29e35bb12e5f6f54a8>"
 
 // Constructor can take the values 224, 256, 384, and 512
 keccak = new Keccak(256);
@@ -29,4 +31,3 @@ keccak.update("Hello, hello! Testing testing");
 // Paranoia defaults to false since the given data is wiped by default in keccak.update
 keccak.final() // "3cf7012953f4e04a80da00065c1f12ce47bdd24633879c29e35bb12e5f6f54a8"
 ```
-

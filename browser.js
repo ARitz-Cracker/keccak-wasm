@@ -1,7 +1,7 @@
 const{InitializeKeccakLib, Keccak, keccak224, keccak256, keccak384, keccak512} = require("./keccak.js");
 const InitializeKeccak = async(bytes) => {
 	if(bytes == null){
-		const response = await fetch("./bin/keccak.wasm");
+		const response = await fetch(__dirname + "/bin/keccak.wasm");
 		if(response.ok){
 			return InitializeKeccakLib(new Uint8Array(response.arrayBuffer()));
 		}
