@@ -1,5 +1,7 @@
 .vscode
 .nyc_output
+.eslintignore
+.eslintrc.json
 src
 test.js
 coverage
