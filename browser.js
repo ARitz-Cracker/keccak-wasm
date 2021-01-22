@@ -3,7 +3,7 @@ const InitializeKeccak = async(bytes) => {
 	if(bytes == null){
 		const response = await fetch(__dirname + "/bin/keccak.wasm");
 		if(response.ok){
-			return InitializeKeccakLib(new Uint8Array(response.arrayBuffer()));
+			return InitializeKeccakLib(new Uint8Array(await response.arrayBuffer()));
 		}
 		throw new Error("Failed to load keccak binary: " + response.status + " " + response.statusText);
 	}else{

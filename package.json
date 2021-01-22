@@ -1,6 +1,6 @@
 {
 	"name": "keccak-wasm",
-	"version": "0.10.0",
+	"version": "0.10.1",
 	"description": "WASM implementation of keccak",
 	"keywords": [
 		"hash",
