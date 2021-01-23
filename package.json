@@ -1,6 +1,6 @@
 {
 	"name": "keccak-wasm",
-	"version": "0.10.2",
+	"version": "0.10.3",
 	"description": "WASM implementation of keccak",
 	"keywords": [
 		"hash",
@@ -38,7 +38,7 @@
 			"keccak.js",
 			"keccakWasm.js"
 		],
-		"copyVerbatim": [
+		"verbatim": [
 			"bin"
 		]
 	},
