@@ -41,3 +41,5 @@ sed -i 's/\"keccak_wasm_bg.wasm\"/\"keccak_wasm_bg.wasm.js\"/' ./pkg/package.jso
 # Add esm module type to package.json
 jq ".type = \"module\"" ./pkg/package.json > ./pkg/package.json.tmp;
 mv ./pkg/package.json.tmp ./pkg/package.json;
+jq ".main = \"keccak_wasm.js\"" ./pkg/package.json > ./pkg/package.json.tmp;
+mv ./pkg/package.json.tmp ./pkg/package.json;

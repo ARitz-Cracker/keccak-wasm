@@ -1,6 +1,6 @@
 [package]
 name = "keccak-wasm"
-version = "0.11.0"
+version = "0.11.2"
 edition = "2021"
 publish = false
 keywords = ["hash", "keccak", "keccak256", "keccak384", "keccak512", "wasm"]
